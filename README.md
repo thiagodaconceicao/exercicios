@@ -1,2 +1,2 @@
 # exercicios
-repositorio de exercicios de cursos e afins
+repositorio de exercicios da faculdade, cursos e afins
