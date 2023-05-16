@@ -3,26 +3,26 @@ valor = 0
 while True:
     print("Loja do zé pequeno")
     print("-------------------------------------")
-    print("(1) Azuzinho - R$ 700")
-    print("(2) Pinga azeda - R$ 25.80")
-    print("(3) Cigarro elétrico - R$ 30.00")
-    print("(4) Peck do pezinho - R$ 500")
-    print("(5) Pão morfado - R$ 9.99")
+    print("(1) Sabonete - R$ 2.00")
+    print("(2) Shampoo - R$ 10.00")
+    print("(3) Limpol - R$ 3.50")
+    print("(4) Oleo - R$ 7.00")
+    print("(5) Pão - R$ 6.30")
     print("-------------------------------------")
 
     print("Qual dos produtos você vai querer?")
     x = int(input())
 
     if x == 1:
-        x = 700
+        x = 2.00
     elif x == 2:
-        x = 25.80
+        x = 10.00
     elif x == 3:
-        x = 30.00
+        x = 3.50
     elif x == 4:
-        x = 500
+        x = 7.00
     elif x == 5:
-        x = 9.99
+        x = 6.30
     else: 
         print("Produto inválido")
         continue
