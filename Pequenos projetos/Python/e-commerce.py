@@ -1,18 +1,20 @@
-valor = 0
+valor = 0 # valor total da compra
+quantidade = {} # A Quantidade a ser comprada
 
 while True:
-    print("Loja do zé pequeno")
+    print("Loja do Zé Pequeno")
     print("-------------------------------------")
     print("(1) Sabonete - R$ 2.00")
     print("(2) Shampoo - R$ 10.00")
     print("(3) Limpol - R$ 3.50")
-    print("(4) Oleo - R$ 7.00")
+    print("(4) Óleo - R$ 7.00")
     print("(5) Pão - R$ 6.30")
     print("-------------------------------------")
 
-    print("Qual dos produtos você vai querer?")
+    print("Qual produto você deseja?")
     x = int(input())
-
+    
+    # valores de cada compra
     if x == 1:
         x = 2.00
     elif x == 2:
@@ -23,36 +25,53 @@ while True:
         x = 7.00
     elif x == 5:
         x = 6.30
-    else: 
+    else:
         print("Produto inválido")
         continue
 
     print(f"Você escolheu o produto por R${x}")
-    valor += x  
 
-    print(f"Seu valor atual é R${valor:.2f}" + (" - você paga frete grátis" if valor > 200 else " - com frete"))
-    
-    z = int(input("(1) pix - 10% de desconto, (2) boleto - 5% de desconto, (3) cartão: 3x sem juros, (4) parcelamento 3x com juros de 2,5% ao mes\n"))
-    
-    if z == 1:
-        z = (valor * 10) / 100
-        print("você tem " + str(z) + (" de desconto no PIX"))
-    elif z == 2:
-        z = (valor * 5) / 100
-        print("você tem " + str(z) + (" de desconto no BOLETO"))
-    elif z == 3:
-        z = valor / 3
-        print("você tem " + str(z) + (" em 3 vezes sem entradas e sem juros"))
-    elif z == 4:
-        j = valor * 0.025 * 3
-        j = valor - j
-        print("o valor da compra com juros é " + str(j))
+    print("Quantidade desejada:")
+    q = int(input())
+    quantidade[x] = quantidade.get(x, 0) + q  #Atualiza a quantidade dos produtos na variavel "Quantidade"
 
-    print("Você quer continuar a compra? ")
-    print("S/N")
+    print("Deseja continuar comprando? (S/N)")
     y = input()
 
     if y.lower() == "n":
         break
 
-print(f"Obrigado por comprar na loja do zé pequeno! O valor da sua compra foi de R${valor:.2f}")
+for produto, qtd in quantidade.items():
+    valor_produto = produto * qtd
+    valor += valor_produto
+
+    print(f"Produto: R${produto:.2f} x {qtd} = R${valor_produto:.2f}")
+
+print(f"O valor total da sua compra é R${valor:.2f}")
+
+print("Escolha a forma de pagamento:")
+print("(1) PIX - 10% de desconto")
+print("(2) Boleto - 5% de desconto")
+print("(3) Cartão - 3x sem juros")
+print("(4) Parcelamento - 12x com juros de 2,5% ao mês")
+
+z = int(input())
+
+if z == 1:
+    desconto = (valor * 10) / 100
+    valor -= desconto
+    print(f"Você tem R${desconto:.2f} de desconto no PIX")
+elif z == 2:
+    desconto = (valor * 5) / 100
+    valor -= desconto
+    print(f"Você tem R${desconto:.2f} de desconto no BOLETO")
+elif z == 3:
+    parcelas = 3
+    valor_parcela = valor / parcelas
+    print(f"Você pode pagar em {parcelas} vezes sem entrada e sem juros de R${valor_parcela:.2f} cada")
+elif z == 4:
+    juros = valor * 0.025 * 12
+    valor += juros
+    print(f"O valor da compra com juros é R${valor:.2f}")
+
+print("Obrigado por comprar na Loja do Zé Pequeno!")
