@@ -2,7 +2,9 @@
 
 \usepackage{acronym,amsmath,circuitikz,tikz}
 \usepackage{karnaugh-map}
-\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes,arrows,positioning,fit}
+\usepackage{algorithm2e}
 
 
 \title{Sistema Automação Veicular}
@@ -17,11 +19,11 @@
   Emanuel Isaac Moura Martins\\
   \text{(Matricula - 1-2023126494)}
   \and
-  Vinícius\\
-  \text{Matricula -}
+  Vinicius Cavalcante Viana\\
+  \text{Matricula - }
   \and
-  João(Tarzan Asmatico)\\
-  \text{Matricula -}
+  João Batista Souza Nogueira\\
+  \text{Matricula - 1-2023126634}
   \and
   Samuel Costa Mota\\
   \text{Matricula -}
@@ -107,5 +109,54 @@ SE & SD & CV & S\\
 5) fluxograma lógico\\
 \newline
 
+\begin{tikzpicture}
+\draw (0, 0) rectangle (3, 1.5);
+\node at (1.5, 0.75) {Inicio};
+  
+\draw (0, -3) rectangle (3, -1.5);
+\node at (1.5, -2.25) {SE};
+  
+\draw (0, -6) rectangle (3, -4.5);
+\node at (1.5, -5.25) {SD};
+  
+\draw (0, -9) rectangle (3, -7.5);
+\node at (1.5, -8.25) {CV};
+  
+\node[diamond, draw, aspect=2] (losango) at (1.5, -10.5) {Continuar};
+\node[diamond, draw, aspect=2] (losango2) at (7,-5) {Recolher};
+
+  
+\draw[->] (1.5, 0.0) -- (1.5, -1.5);
+\draw[->] (1.5, -3.0) -- (1.5, -4.5);
+\draw[->] (1.5, -6.0) -- (1.5, -7.5);
+\draw[->] (1.5, -9.0) -- (losango);
+ 
+\draw[->] (3, -2.25) -- (7, -2) -- (7, -2) -- (losango2);
+\draw[->] (3, -5.25) -- (4, -5) -- (4, -5) -- (losango2);
+\draw[->] (3, -8.25) -- (6.90, -8) -- (6.90, -8) -- (losango2);
+
+\draw[->] (3, -2.25) -- (7, -2) node[midway, above] {SIM} -- (7, -2) -- (losango2);
+\draw[->] (3, -5.25) -- (4, -5) node[midway, above] {SIM} -- (4, -5) -- (losango2);
+\draw[->] (3, -8.25) -- (6.90, -8) node[midway, above] {SIM} -- (6.90, -8) -- (losango2);
+\end{tikzpicture}
+\newline
+
+6) Pseudo-código\\
+\newline
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwIn{SE, SD, CV}
+\KwOut{S}
+
+\If{SE = verdadeiro \textbf{ou} SD = verdadeiro \textbf{ou} CV = verdadeiro}{
+    S = Recolher\;
+}
+\Else{
+    S = Continuar\;
+}
+
+\caption{Algoritmo FODA}
+\end{algorithm}
 
 \end{document}
