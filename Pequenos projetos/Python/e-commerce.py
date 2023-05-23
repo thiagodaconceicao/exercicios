@@ -4,11 +4,11 @@ quantidade = {} # A Quantidade a ser comprada
 while True:
     print("Loja do Zé Pequeno")
     print("-------------------------------------")
-    print("(1) Sabonete - R$ 2.00")
-    print("(2) Shampoo - R$ 10.00")
-    print("(3) Limpol - R$ 3.50")
-    print("(4) Óleo - R$ 7.00")
-    print("(5) Pão - R$ 6.30")
+    print("(1) Rolinhos primavera de camarão: R$ 25,00")
+    print("(2) Mousse de maracujá com gengibre: R$ 20,00")
+    print("(3) Tábua de queijos exóticos: R$ 40,00")
+    print("(4) Vinho tinto (garrafa): R$ 60,00")
+    print("(5) Curry de cordeiro com arroz basmati: R$ 55,00")
     print("-------------------------------------")
 
     print("Qual produto você deseja?")
@@ -16,15 +16,15 @@ while True:
     
     # valores de cada compra
     if x == 1:
-        x = 2.00
+        x = 25.00
     elif x == 2:
-        x = 10.00
+        x = 20.00
     elif x == 3:
-        x = 3.50
+        x = 40.00
     elif x == 4:
-        x = 7.00
+        x = 60.00
     elif x == 5:
-        x = 6.30
+        x = 55.00
     else:
         print("Produto inválido")
         continue
